@@ -43,22 +43,7 @@ Requires installation of:
 - `autoremove` - Removes pacman and yay Orphan packages. <br/>
 
     ```shell
-    autoremove()  
-    {
-      local orphans
-
-      orphans=$(pacman -Qdtq)
-      if [[ -n "$orphans" ]]; then
-        sudo pacman -Rns --noconfirm $orphans
-      else
-        echo "No pacman orphans to remove."
-      fi
-
-      orphans=$(yay -Qdtq)
-      if [[ -n "$orphans" ]]; then
-        yay -Rns --noconfirm $orphans
-      else
-        echo "No yay orphans to remove."
-      fi
+    autoremove() {
+      yay -Yc --noconfirm
     }
     ```
